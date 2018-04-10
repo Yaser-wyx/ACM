@@ -7,29 +7,17 @@ typedef long long int lli;
 #define mset(t) memset(t,0,sizeof(t))
 #define maxn 100005
 using namespace std;
-int fa[maxn];
 
-void init(int n) {
-    for (int i = 0; i <= n; fa[i] = i++);
-}
-
-int find(int u) {
-    return fa[u] == u ? fa[u] : fa[u] = find(fa[u]);
-}
-
-void _union(int u, int v) {
-    fa[find(v)] = find(u);
-}
-
+int w, n;
+int p[maxn];
 
 int main() {
-    int n, m;
-    scanf("%d%d", &n, &m);
-    init(n);
-    int a, b;
-    for (int i = 0; i < m; i++) {
-        scanf("%d%d", &a, &b);
-        _union(a, b);
+    in;
+    scanf("%d%d", &w, &n);
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &p[i]);
     }
+    sort(p, p + n);
+
     return 0;
 }
