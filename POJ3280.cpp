@@ -13,7 +13,7 @@ using namespace std;
  * 
  */
 #define maxn 2020
-char s[maxn];
+char *s;
 int letter[2][maxn];
 int cost[maxn][maxn];
 

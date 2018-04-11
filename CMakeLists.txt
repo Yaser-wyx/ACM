@@ -33,7 +33,7 @@ project(Template)
 add_executable(Template Template/LIS.cpp Template/Qpow.cpp Template/gcd.cpp Template/Inverse.cpp Template/exgcd.cpp)
 
 project(LG)
-add_executable(LG P1025.cpp P1192.cpp P1057.cpp P1182.cpp P1316.cpp P1003.cpp P1090.cpp P1067.cpp P1540.cpp P1059.cpp P1094.cpp)
+add_executable(LG P1025.cpp P1192.cpp P1057.cpp P1182.cpp P1316.cpp P1003.cpp P1090.cpp P1067.cpp P1540.cpp P1059.cpp P1803.cpp P1094.cpp P1219.cpp)
 
 project(mock_round)
 add_executable(mock_round a B.cpp D.cpp G.cpp H.cpp I.cpp)

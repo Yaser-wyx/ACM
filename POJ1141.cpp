@@ -14,7 +14,7 @@ using namespace std;
  */
 #define maxn 250
 #define inf 9999
-char s[maxn];
+char *s;
 long pos[maxn][maxn];//-1代表断点处
 
 void print(int l, int r) {
