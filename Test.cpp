@@ -22,7 +22,7 @@ void add(int a, int b) {
     cnt++;
     edges[cnt].to = b;
     edges[cnt].next = head[a];
-    head[a] = cnt;//更新以a为起点的边的位置
+    head[a] = cnt;//更新以a为起点 的边的位置
 }
 
 bool dfs(int node, int flag) {
