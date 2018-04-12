@@ -11,16 +11,16 @@ using namespace std;
  * 
  */
 int n;
-int vis[maxn];
+int vis[maxn];//每个单词已经访问过的次数
 int ans = 0;
-int chart[maxn][maxn];
-char *s[maxn];
+int chart[maxn][maxn];//保存单词重合的个数
+char *s[maxn];//单词
 
 void dfs(int x, int len) {
-    ans = max(ans, len);
+    ans = max(ans, len);//保证ans的值最大
     for (int i = 0; i < n; i++) {
-        if (chart[x][i]) {
-            //不为0
+        if (chart[x][i]) { //不为0，即二者有重叠的部分
+
             if (vis[i] < 2) {
                 vis[i]++;
                 dfs(i, len + (strlen(s[i]) - chart[x][i]));
@@ -35,18 +35,18 @@ void pre() {//预处理
         for (int j = 0; j < n; j++) {//后
 
             char *temp = &s[i][strlen(s[i]) - 1];
-            int cnt = 1;
+            int cnt = 1;//重合的个数
             while (*temp != s[j][0] && temp > &s[i][0]) {//定位前一个单词与后一个单词首个字母重复的位置
-                temp--;
+                temp--;//从后向前遍历，直到找到与另一个单词开头一样的字母
                 cnt++;
             }
-            if (cnt < strlen(s[i]) && cnt < strlen(s[j])) {
+            if (cnt < strlen(s[i]) && cnt < strlen(s[j])) {//如果重合的个数大于等于二中中的一个，则将个数置为0
                 auto index = &s[j][0];
                 while (temp <= &s[i][strlen(s[i]) - 1]) {
-                    if (*temp == *index) {
+                    if (*temp == *index) {//如果字母一样，则二者同时向后移动
                         temp++;
                         index++;
-                    } else {
+                    } else {//不一样代表没有重合的字母，置为0
                         cnt = 0;
                         break;
                     }
