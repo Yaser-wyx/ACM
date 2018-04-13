@@ -24,13 +24,13 @@ struct Seg {
 } a[maxn];
 
 int x;
-int cnt[maxn << 2];
+int dfn_index[maxn << 2];
 double sum1[maxn << 2], all[maxn];
 #define lson l,m,rt<<1
 #define rson m+1,r,rt<<1|1
 
 void push_up(int l, int r, int rt) {
-    if (cnt[rt]) {//该区间被覆盖过
+    if (dfn_index[rt]) {//该区间被覆盖过
         sum1[rt] = all[r + 1] - all[l];
     } else if (l == r) {//叶子结点
         sum1[rt] = 0;
@@ -42,7 +42,7 @@ void push_up(int l, int r, int rt) {
 void update(int L, int R, int v, int l, int r, int rt) {
     if (L <= l && R >= r) {
         //当前区域在更新范围内
-        cnt[rt] += v;
+        dfn_index[rt] += v;
         push_up(l, r, rt);
         return;
     }
@@ -68,7 +68,7 @@ int HDU1542() {
         sort(a + 1, a + 1 + x);
         sort(all + 1, all + 1 + x);
         int m = (unique(all + 1, all + 1 + x) - all - 1);
-        memset(cnt, 0, sizeof(cnt));
+        memset(dfn_index, 0, sizeof(dfn_index));
         memset(sum1, 0, sizeof(sum1));
         double ans = 0;
         for (int i = 1; i < x; i++) {

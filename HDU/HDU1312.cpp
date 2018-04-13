@@ -29,7 +29,7 @@ struct node {
     node(int a, int b) { set(a, b); }
 };
 
-node st;
+node top;
 
 int ans;
 int mv[4][2] = {{1,  0},
@@ -40,7 +40,7 @@ int mv[4][2] = {{1,  0},
 void bfs() {
     ans = 1;//起点也是一个
     queue<node> queue1;
-    queue1.push(st);
+    queue1.push(top);
     while (!queue1.empty()) {
         node temp = queue1.front();
         queue1.pop();
@@ -73,7 +73,7 @@ int HDU1312() {
             for (int j = 0; j < w; j++) {
                 scanf("%c", &puzzle[i][j]);
                 if (puzzle[i][j] == '@') {
-                    st.set(i, j);
+                    top.set(i, j);
                 }
             }
         }

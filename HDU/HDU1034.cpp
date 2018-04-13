@@ -15,10 +15,10 @@ using namespace std;
 int temp[maxn];//保存要分给别人的糖果
 int candy[maxn];
 int nums;
-int cnt;
+int dfn_index;
 
 void share(int n) {
-    cnt = 0;
+    dfn_index = 0;
     bool flag = false;
     while (!flag) {
         int temp2[n];
@@ -38,7 +38,7 @@ void share(int n) {
             }
             temp[i] = candy[i] / 2;//更新下一次要分给别人的糖果
         }
-        cnt++;//一轮循环
+        dfn_index++;//一轮循环
         //判断
         for (int i = 1; i < n; i++) {
             if (candy[i] != candy[i - 1]) {
@@ -61,7 +61,7 @@ int main() {
             temp[i] = candy[i] / 2;
         }
         share(n);
-        printf("%d %d\n", cnt, nums);
+        printf("%d %d\n", dfn_index, nums);
     }
     return 0;
 }

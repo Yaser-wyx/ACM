@@ -30,13 +30,13 @@ struct Seg {
 
 } rectangle[maxn];
 
-int cnt[maxn << 2];
+int dfn_index[maxn << 2];
 double sum1[maxn << 2];
 double sum2[maxn << 2];
 double x[maxn << 2];
 
 void push_up(int rt, int l, int r) {
-    if (cnt[rt]) {
+    if (dfn_index[rt]) {
         sum1[rt] = x[r + 1] - x[l];
     } else if (l == r) {
         sum1[rt] = 0;
@@ -44,13 +44,13 @@ void push_up(int rt, int l, int r) {
         sum1[rt] = sum1[rt << 1] + sum1[rt << 1 | 1];
     }
 
-    if (cnt[rt] == 1) {
+    if (dfn_index[rt] == 1) {
         sum2[rt] = sum1[rt << 1] + sum1[rt << 1 | 1];
-    } else if (cnt[rt] >= 2) {
+    } else if (dfn_index[rt] >= 2) {
         sum2[rt] = x[r + 1] - x[l];
     } else if (l == r) {
         sum2[rt] = 0;
-    } else if (cnt[rt] == 0) {
+    } else if (dfn_index[rt] == 0) {
         sum2[rt] = sum2[rt << 1] + sum2[rt << 1 | 1];
     }
 
@@ -58,7 +58,7 @@ void push_up(int rt, int l, int r) {
 
 void update(int L, int R, int v, int l, int r, int rt) {
     if (L <= l && R >= r) {
-        cnt[rt] += v;
+        dfn_index[rt] += v;
         push_up(rt, l, r);
         return;
     }
@@ -74,7 +74,7 @@ int HDU1255() {
     while (T--) {
         int n;
         scanf("%d", &n);
-        memset(cnt, 0, sizeof(cnt));
+        memset(dfn_index, 0, sizeof(dfn_index));
         memset(sum1, 0, sizeof(sum1));
         memset(sum2, 0, sizeof(sum2));
         memset(x, 0, sizeof(x));

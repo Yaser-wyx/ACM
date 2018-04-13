@@ -14,7 +14,7 @@ typedef long long int lli;
  */
 
 int n;
-int cnt = 0;
+int dfn_index = 0;
 int nums[maxn];
 bool vis[maxn];
 
@@ -29,8 +29,8 @@ bool judge(int index) {
 
 void dfs(int index) {
     if (index == n) {
-        cnt++;
-        if (cnt <= 3) {
+        dfn_index++;
+        if (dfn_index <= 3) {
             for (int i = 0; i < n; i++) {
                 printf("%d", nums[i] + 1);
                 if (i != n) {
@@ -57,6 +57,6 @@ int P1219() {
     scanf("%d", &n);
     mset(vis);
     dfs(0);
-    printf("%d\n", cnt);
+    printf("%d\n", dfn_index);
     return 0;
 }

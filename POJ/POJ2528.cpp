@@ -20,7 +20,7 @@ using namespace std;
 
 int col[maxn << 4];
 int hash1[maxn << 4];
-int cnt;
+int dfn_index;
 
 void PushDown(int rt) {
     if (col[rt] != -1) {
@@ -45,7 +45,7 @@ void update(int L, int R, int v, int l, int r, int rt) {//区间更新
 void query(int l, int r, int rt) {
     if (col[rt] != -1) {
         if (!hash1[col[rt]]) {
-            cnt++;
+            dfn_index++;
         }
         hash1[col[rt]] = true;
         return;
@@ -83,7 +83,7 @@ int main() {
             }
         }
         sort(x, x + size);//再排序
-        cnt = 0;
+        dfn_index = 0;
         //初始化
         memset(hash1, false, sizeof(hash1));
         memset(col, -1, sizeof(col));
@@ -93,7 +93,7 @@ int main() {
             update(l, r, i, 0, size, 1);
         }
         query(0, size, 1);
-        printf("%d\n", cnt);
+        printf("%d\n", dfn_index);
     }
     return 0;
 }
