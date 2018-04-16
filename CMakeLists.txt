@@ -32,7 +32,7 @@ project(Template)
 add_executable(Template Template/LIS.cpp Template/Qpow.cpp Template/gcd.cpp Template/Inverse.cpp Template/exgcd.cpp)
 
 project(LG)
-add_executable(LG LG/P1025.cpp LG/P1192.cpp LG/P1057.cpp LG/P1182.cpp LG/P1316.cpp LG/P1003.cpp LG/P1090.cpp LG/P1067.cpp LG/P1540.cpp LG/P1059.cpp LG/P1803.cpp LG/P1094.cpp LG/P1219.cpp LG/P1019.cpp LG/P1101.cpp LG/P2661.cpp LG/P1330.cpp LG/P1341.cpp)
+add_executable(LG LG/P1025.cpp LG/P1192.cpp LG/P1057.cpp LG/P1182.cpp LG/P1316.cpp LG/P1003.cpp LG/P1090.cpp LG/P1067.cpp LG/P1540.cpp LG/P1059.cpp LG/P1803.cpp LG/P1094.cpp LG/P1219.cpp LG/P1019.cpp LG/P1101.cpp LG/P2661.cpp LG/P1330.cpp LG/P1341.cpp LG/P1443.cpp LG/P1126.cpp LG/P1141.cpp LG/P1462.cpp LG/P1346.cpp LG/P1119.cpp LG/P1346_2.cpp LG/P1144.cpp LG/P1144_2.cpp)
 
 project(other)
 add_executable(other other/LCS.cpp other/B.cpp other/D.cpp other/G.cpp other/H.cpp other/I.cpp other/CF470_C.cpp)

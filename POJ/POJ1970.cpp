@@ -19,19 +19,19 @@ int mov[4][2] = {{1, -1},
                  {1, 0},
                  {1, 1},
                  {0, 1}};
-int step[maxn][maxn];
+int steps[maxn][maxn];
 bool vis[4][maxn][maxn];
 
 int dfs(int x, int y, int k, int z) {
 
     int new_x = x + mov[k][0];
     int new_y = y + mov[k][1];
-    int ans = step[x][y];
+    int ans = steps[x][y];
     if (new_x >= 0 && new_y >= 0 && new_x < 19 && new_y < 19) {
         if (!vis[k][new_x][new_y]) {
             vis[k][new_x][new_y] = true;
             if (puzzle[new_x][new_y] == z) {
-                step[new_x][new_y] = step[x][y] + 1;
+                steps[new_x][new_y] = steps[x][y] + 1;
                 ans = dfs(new_x, new_y, k, z);
             }
         }
@@ -43,12 +43,12 @@ bool flag;
 
 void Floodfill() {
     flag = false;
-    memset(step, 0, sizeof(step));
+    memset(steps, 0, sizeof(steps));
     for (int i = 0; i < 19; i++) {
         for (int j = 0; j < 19; j++) {
             if (puzzle[i][j] != 0) {
                 for (int k = 0; k < 4; k++) {
-                    step[i][j] = 1;
+                    steps[i][j] = 1;
                     int ans = dfs(i, j, k, puzzle[i][j]);
                     if (ans == 5) {
                         int x = i + 1;
