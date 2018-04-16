@@ -6,30 +6,37 @@ typedef long long int lli;
 using namespace std;
 #define in fstream _file;_file.open(data1,ios::in);if(_file){freopen(data1,"r",stdin);}else{_file.open(data2,ios::in);if(_file)freopen(data2,"r",stdin);}
 #define mset(t, x) memset(t,x,sizeof(t))
-#define maxn 10006
+#define maxn 32100
 int n, m;
 
 int main() {
-    in;
-    int cost[30];
-    scanf("%d%d", &n, &m);
-    for (int i = 0; i < n; i++) {
-        scanf("%d", &cost[i]);
-    }
+    pair<int, int> primary[100];//主件
+    vector<pair<int, int>> adjunct[100];//附件
     int dp[maxn];
-    mset(dp, -1);
-    dp[0] = 1;
-    for (int i = 0; i < n; i++) {
-        for (int j = m; j >= cost[i]; j--) {
-            if (dp[j - cost[i]] > 0) {
-                if (dp[j] < 0) {
-                    dp[j] = dp[j - cost[i]];
-                } else {
-                    dp[j] = dp[j - cost[i]] + dp[j];
-                }
-            }
+    in;
+    scanf("%d%d", &n, &m);
+    int v, p, q;
+    for (int i = 1; i < 100; i++) {
+        pair<int, int> temp(0, 0);
+        adjunct[i].push_back(temp);
+    }
+    for (int i = 1; i <= m; i++) {
+        scanf("%d%d%d", &v, &p, &q);
+        if (q == 0) {
+            primary[i].first = v;
+            primary[i].second = p;
+        } else {
+            pair<int, int> pair1(v, p);
+            adjunct[q].push_back(pair1);
         }
     }
-    printf("%d\n", dp[m]);
+    int cost[5000];
+    int value[5000];
+    for (int i = 1; i <= m; i++) {
+        for (int j = 0; j < adjunct[i].size(); j++) {
+
+        }
+    }
+    printf("%d\n", dp[n]);
     return 0;
 }
