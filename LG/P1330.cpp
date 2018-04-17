@@ -16,7 +16,7 @@ int head[maxn];
 int cnt = 0;
 int color[maxn];
 bool vis[maxn];
-int sum[2];
+int pre[2];
 struct edge {
     int next;
     int to;
@@ -38,7 +38,7 @@ bool dfs(int node, int flag) {
         }
     }
     vis[node] = 1;//设置为已访问
-    sum[(color[node] = flag) == 1 ? 1 : 0]++;//颜色计数器
+    pre[(color[node] = flag) == 1 ? 1 : 0]++;//颜色计数器
     bool tf = 1;//标记是否可行
     for (int i = head[node]; i != -1 && tf; i = edges[i].next) {//链式前向星的遍历
         tf = tf && dfs(edges[i].to, 0 - flag);
@@ -61,12 +61,12 @@ int P1330() {
         if (vis[i]) {
             continue;//已经访问过了
         }
-        mset(sum, 0);
+        mset(pre, 0);
         if (!dfs(i, 1)) {//不是二分图
             printf("Impossible\n");
             return 0;
         }
-        ans += min(sum[0], sum[1]);//选取较小的染色方案
+        ans += min(pre[0], pre[1]);//选取较小的染色方案
 
     }
     printf("%d\n", ans);

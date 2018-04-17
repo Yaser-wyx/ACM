@@ -28,12 +28,12 @@ bool judge() {
     return true;
 }
 
-int sum = 0;
+int pre = 0;
 
 void find(int index) {
     if (index == 8) {
         if (judge()) {
-            sum++;
+            pre++;
             for (int i = 0; i < 8; i++) {
                 printf("%d", nums[i]);
             }
@@ -57,6 +57,6 @@ void find(int index) {
 int B() {
     find(0);
 
-    printf("\n\n%d", sum);
+    printf("\n\n%d", pre);
     return 0;
 }
