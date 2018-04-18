@@ -8,7 +8,7 @@ typedef long long int lli;
 using namespace std;
 #define in fstream _file;_file.open(data1,ios::in);if(_file){freopen(data1,"r",stdin);}else{_file.open(data2,ios::in);if(_file)freopen(data2,"r",stdin);}
 #define mset(t, x) memset(t,x,sizeof(t))
-#define maxn 5500
+#define maxn 300
 int n, m;
 
 int main() {
