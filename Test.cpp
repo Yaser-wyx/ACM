@@ -21,5 +21,6 @@ int n, m, t;
 int main() {
     in;
 
+
     return 0;
 }
