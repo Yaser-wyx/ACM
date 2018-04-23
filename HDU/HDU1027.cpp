@@ -14,7 +14,7 @@ using namespace std;
 int x, m;
 
 int fac[] = {1, 1, 2, 6, 24, 120, 720, 5040, 40320}; //康托展开的逆运算,{1...n}的全排列，中的第k个数为s[]
-int nums[maxn];
+int pre[maxn];
 
 //逆康托展开
 void decantor(int s, int e, int k) {//从s开始到e结束，求第K个全排列
@@ -44,18 +44,18 @@ void decantor(int s, int e, int k) {//从s开始到e结束，求第K个全排列
 
 int HDU1027() {
     while (~scanf("%d%d", &x, &m)) {
-        memset(nums, 0, sizeof(nums));
+        memset(pre, 0, sizeof(pre));
         int s = 1, e = x;
         if (x > 8) {
             for (int i = 0; i < x - 8; i++) {
-                nums[i] = i + 1;
+                pre[i] = i + 1;
                 s++;
             }
         }
 
         decantor(s, e, m);
         for (int i = 0; i < x; i++) {
-            printf("%d", nums[i]);
+            printf("%d", pre[i]);
             if (i != x - 1) {
                 printf(" ");
             }

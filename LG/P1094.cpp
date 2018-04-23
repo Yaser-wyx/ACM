@@ -13,7 +13,7 @@ typedef long long int lli;
 
 #define maxn 100005
 
-int nums[maxn];
+int pre[maxn];
 
 int P1094() {
     int w, n;
@@ -21,11 +21,11 @@ int P1094() {
     scanf("%d%d", &w, &n);
 
     for (int i = 0; i < n; i++) {
-        scanf("%d", &nums[i]);//读入
+        scanf("%d", &pre[i]);//读入
     }
-    sort(nums, nums + n);//排序
-    int *front = nums;//头指针
-    int *ed = nums + n - 1;//尾指针
+    sort(pre, pre + n);//排序
+    int *front = pre;//头指针
+    int *ed = pre + n - 1;//尾指针
     int cnt = 0;//计数器
     while (front <= ed) {//注意需要=，因为1个也可以是一组
         if (*front + *ed <= w) {//如果二者相加小于w

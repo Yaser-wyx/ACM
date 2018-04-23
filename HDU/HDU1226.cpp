@@ -13,7 +13,7 @@ using namespace std;
 
 #define no "give me the bomb please\n"
 int n, m, x;
-vector<int> nums;
+vector<int> pre;
 bool flag;
 bool vis[5050];
 
@@ -50,8 +50,8 @@ void print(node node1) {
 void bfs() {
     flag = false;
     queue<node> queue1;
-    for (int i = 0; i < nums.size(); i++) {//添加节点
-        int index = nums[i];
+    for (int i = 0; i < pre.size(); i++) {//添加节点
+        int index = pre[i];
         if (index == 0) {
             continue;//0不放在首位
         }
@@ -71,8 +71,8 @@ void bfs() {
     while (!queue1.empty()) {
         node temp = queue1.front();
         queue1.pop();
-        for (int i = 0; i < nums.size(); i++) {
-            int index = nums[i];
+        for (int i = 0; i < pre.size(); i++) {
+            int index = pre[i];
             temp.add(index);
             int res = judge(temp);
             if (!res) {
@@ -95,7 +95,7 @@ int main() {
     scanf("%d", &T);
     while (T--) {
         memset(vis, false, sizeof(vis));
-        nums.clear();
+        pre.clear();
         scanf("%d%d%d", &n, &x, &m);
         bool zero = false;
         for (int i = 0; i < m; i++) {
@@ -104,9 +104,9 @@ int main() {
             if (k == 0) {
                 zero = true;
             }
-            nums.push_back(k);//读取数据
+            pre.push_back(k);//读取数据
         }
-        sort(nums.begin(), nums.end());//注意排序
+        sort(pre.begin(), pre.end());//注意排序
         //对0进行特判
         if (!n) {
             if (zero) {

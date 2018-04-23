@@ -15,21 +15,21 @@ using namespace std;
 typedef long long int lld;
 using namespace std;
 int n;
-lld nums[maxn];
+lld pre[maxn];
 
 void form() {
-    nums[1] = 3;
-    nums[2] = 6;
-    nums[3] = 6;
+    pre[1] = 3;
+    pre[2] = 6;
+    pre[3] = 6;
     for (int i = 4; i < maxn; i++) {
-        nums[i] = nums[i - 1] + nums[i - 2] * 2;
+        pre[i] = pre[i - 1] + pre[i - 2] * 2;
     }
 }
 
 int HDU2045() {
     form();
     while (~scanf("%d", &n) ) {
-        printf("%lld\n", nums[n]);
+        printf("%lld\n", pre[n]);
     }
 
     return 0;

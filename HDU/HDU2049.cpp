@@ -14,16 +14,16 @@ using namespace std;
 typedef long long int lli;
 #define maxn 22
 int n;
-lli nums[maxn];
+lli pre[maxn];
 
 void form() {
-    nums[1] = 0;
-    nums[2] = 1;
+    pre[1] = 0;
+    pre[2] = 1;
 
     lli N = 2;
     for (int i = 3; i < maxn; i++) {
         N *= i;
-        nums[i] = (i - 1) * (nums[i - 1] + nums[i - 2]);
+        pre[i] = (i - 1) * (pre[i - 1] + pre[i - 2]);
     }
 }
 
@@ -57,7 +57,7 @@ int HDU2049() {
         int n, m;
         scanf("%d%d", &n, &m);
         lli res = caculate(n, n - m);
-        res *= nums[m];
+        res *= pre[m];
         printf("%lld\n", res);
     }
     return 0;

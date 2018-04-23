@@ -14,19 +14,19 @@ using namespace std;
 #define maxn 22
 int n;
 typedef long long int lli;
-lli nums[maxn];
+lli pre[maxn];
 double ans[maxn];
 
 void form() {
-    nums[1] = 0;
-    nums[2] = 1;
+    pre[1] = 0;
+    pre[2] = 1;
     ans[1] = 0;
     ans[2] = 50;
     lli N = 2;
     for (int i = 3; i < maxn; i++) {
         N *= i;
-        nums[i] = (i - 1) * (nums[i - 1] + nums[i - 2]);
-        ans[i] = ((double) nums[i] / (double) N) * 100;
+        pre[i] = (i - 1) * (pre[i - 1] + pre[i - 2]);
+        ans[i] = ((double) pre[i] / (double) N) * 100;
     }
 }
 

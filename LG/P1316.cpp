@@ -12,12 +12,12 @@ using namespace std;
 
 #define maxn 100010
 int a, b;
-int nums[maxn];
+int pre[maxn];
 
 bool judge(int dis) {
     int k = 1, last = 0;
     for (int i = 0; i < a; i++) {
-        int d = nums[i] - nums[last];
+        int d = pre[i] - pre[last];
         if (d >= dis) {
             k++;
             last = i;
@@ -29,11 +29,11 @@ bool judge(int dis) {
 int P1316() {
     scanf("%d%d", &a, &b);
     for (int i = 0; i < a; i++) {
-        scanf("%d", &nums[i]);
+        scanf("%d", &pre[i]);
     }
-    sort(nums, nums + a);
+    sort(pre, pre + a);
     int l = 0;
-    int r = nums[a - 1] - nums[0];
+    int r = pre[a - 1] - pre[0];
     while (l <= r) {
         int mid = (l + r) >> 1;
         if (judge(mid)) {

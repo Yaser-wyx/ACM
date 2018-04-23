@@ -11,18 +11,18 @@ using namespace std;
  */
 
 #define maxn 100000
-int nums[maxn];
+int pre[maxn];
 int n, m;
 
 inline bool judge(int test) {
     int k = 0;
     int sum = 0;
     for (int i = 0; i < n; i++) {
-        if (nums[i] + sum <= test) {
-            sum += nums[i];
+        if (pre[i] + sum <= test) {
+            sum += pre[i];
         } else {
             k++;
-            sum = nums[i];
+            sum = pre[i];
         }
     }
     return k >= m;
@@ -36,9 +36,9 @@ int P1182() {
     int l = 0;
 
     for (int i = 0; i < n; i++) {
-        scanf("%d", &nums[i]);
-        l = max(l, nums[i]);
-        r += nums[i];
+        scanf("%d", &pre[i]);
+        l = max(l, pre[i]);
+        r += pre[i];
     }
     int mid;
     while (l <= r) {

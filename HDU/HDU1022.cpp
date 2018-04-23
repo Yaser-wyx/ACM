@@ -15,11 +15,11 @@ using namespace std;
 int x;
 char o1[maxn];//进站顺序
 char o2[maxn];//出站顺序
-bool nums[maxn];//解决方案，false代表出站，true代表进站
+bool pre[maxn];//解决方案，false代表出站，true代表进站
 
 
 bool judge() {
-    memset(nums, false, sizeof(nums));//初始化
+    memset(pre, false, sizeof(pre));//初始化
     stack<char> stack1;
     int index1 = 0;//o1索引
     int index2 = 0;//o2索引
@@ -30,10 +30,10 @@ bool judge() {
                 return false;
             }
             stack1.push(o1[index1++]);
-            nums[x++] = true;
+            pre[x++] = true;
         } else {//栈顶元素与下一个出栈的元素一致，则出栈
             stack1.pop();
-            nums[x++] = false;
+            pre[x++] = false;
             index2++;
         }
     }
@@ -48,7 +48,7 @@ int HDU1022() {
         if (judge()) {
             printf("Yes.\n");
             for (int i = 0; i < x; i++) {
-                if (nums[i]) {
+                if (pre[i]) {
                     printf("in\n");
                 } else {
                     printf("out\n");

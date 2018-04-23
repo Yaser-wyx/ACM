@@ -12,7 +12,7 @@ using namespace std;
 #define mset(t, x) memset(t,x,sizeof(t))
 #define maxn 100010
 int n, m;
-int nums[maxn];
+int pre[maxn];
 int len = 0;
 int dp[maxn];
 
@@ -33,25 +33,25 @@ int binary(int x) {
 
 int main() {
     int index = 0;
-    while (~scanf("%d", &nums[index]))index++;
+    while (~scanf("%d", &pre[index]))index++;
     int system[maxn];
     mset(dp, 0);
     int cnt = 0;
     len = 0;
-    dp[0] = nums[index];
-    system[0] = nums[index];
+    dp[0] = pre[index];
+    system[0] = pre[index];
     for (int i = index - 1; i >= 0; i--) {
-        if (dp[len] <= nums[i]) {
-            dp[++len] = nums[i];
+        if (dp[len] <= pre[i]) {
+            dp[++len] = pre[i];
         } else {
-            int inx = binary(nums[i]);
-            dp[inx] = nums[i];
+            int inx = binary(pre[i]);
+            dp[inx] = pre[i];
         }
         int inx = -1;
         int dis = 99999999;
         for (int j = 0; j <= cnt; j++) {
-            if (system[j] <= nums[i]) {
-                int temp = abs(system[j] - nums[i]);
+            if (system[j] <= pre[i]) {
+                int temp = abs(system[j] - pre[i]);
                 if (dis > temp) {
                     dis = temp;
                     inx = j;
@@ -60,9 +60,9 @@ int main() {
         }
 
         if (inx == -1) {
-            system[++cnt] = nums[i];
+            system[++cnt] = pre[i];
         } else {
-            system[inx] = nums[i];
+            system[inx] = pre[i];
         }
     }
     printf("%d\n%d", len, cnt + 1);

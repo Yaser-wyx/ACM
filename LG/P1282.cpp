@@ -50,9 +50,9 @@ int P1282() {
         if (dis > abs(up - down)) {
             dis = abs(up - down);
             ans = dp[n][up];
-        } else if (abs(up - down) == dis) {
+        }/* else if (abs(up - down) == dis) {
             ans = min(ans, dp[n][up]);
-        }
+        }*/
     }
     printf("%d\n", ans);
     return 0;

@@ -11,13 +11,13 @@ using namespace std;
  * 
  */
 #define maxn 10
-int nums[6];
+int pre[6];
 int n;
 
 bool judge(int nn) {
     int l = 0, r = nn - 1;
     while (l <= r) {
-        if (nums[l] != nums[r]) {
+        if (pre[l] != pre[r]) {
             return false;
         } else {
             l++, r--;
@@ -25,14 +25,14 @@ bool judge(int nn) {
     }
     int sum = 0;
     for (int i = 0; i < nn; i++) {
-        sum += nums[i];
+        sum += pre[i];
     }
     return sum == n;
 }
 
 void print(int nn) {
     for (int i = 0; i < nn; i++) {
-        printf("%d", nums[i]);
+        printf("%d", pre[i]);
     }
     printf("\n");
 
@@ -46,11 +46,11 @@ int p4() {
             for (int k = 0; k < maxn; k++) {
                 for (int l = 0; l < maxn; l++) {
                     for (int m = 0; m < maxn; m++) {
-                        nums[0] = i;
-                        nums[1] = j;
-                        nums[2] = k;
-                        nums[3] = l;
-                        nums[4] = m;
+                        pre[0] = i;
+                        pre[1] = j;
+                        pre[2] = k;
+                        pre[3] = l;
+                        pre[4] = m;
                         if (judge(5)) {
                             flag = false;
                             print(5);
@@ -67,12 +67,12 @@ int p4() {
                 for (int l = 0; l < maxn; l++) {
                     for (int m = 0; m < maxn; m++) {
                         for (int o = 0; o < maxn; o++) {
-                            nums[0] = i;
-                            nums[1] = j;
-                            nums[2] = k;
-                            nums[3] = l;
-                            nums[4] = m;
-                            nums[5] = o;
+                            pre[0] = i;
+                            pre[1] = j;
+                            pre[2] = k;
+                            pre[3] = l;
+                            pre[4] = m;
+                            pre[5] = o;
                             if (judge(6)) {
                                 flag = false;
                                 print(6);

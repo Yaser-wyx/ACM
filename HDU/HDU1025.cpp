@@ -12,7 +12,7 @@ using namespace std;
  */
 #define maxn 500050
 int n, k;
-int nums[maxn];
+int pre[maxn];
 int dp[maxn];//dp用来存放长度为i的lis末尾最小是什么
 int len;
 
@@ -34,14 +34,14 @@ int bs(int x) {
 int LIS() {//O(nlogn)朴素LIS算法
     memset(dp, 0, sizeof(dp));
     len = 1;
-    dp[0] = nums[1];
+    dp[0] = pre[1];
     for (int i = 2; i <= n; i++) {
-        int index = bs(nums[i]);
+        int index = bs(pre[i]);
         if (index >= len) {
-            dp[len++] = nums[i];
+            dp[len++] = pre[i];
         } else {
-            if (dp[index] > nums[i]) {
-                dp[index] = nums[i];
+            if (dp[index] > pre[i]) {
+                dp[index] = pre[i];
             }
         }
     }
@@ -54,7 +54,7 @@ int HDU1025() {
     while (~scanf("%d", &n)) {
         for (int i = 0; i < n; i++) {
             scanf("%d", &k);
-            scanf("%d", &nums[k]);
+            scanf("%d", &pre[k]);
         }
         int ans = LIS();
         printf("Case %d:\n", T++);

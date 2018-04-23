@@ -14,7 +14,7 @@ using namespace std;
 
 int temp[maxn];//保存要分给别人的糖果
 int candy[maxn];
-int nums;
+int pre;
 int dfn_index;
 
 void share(int n) {
@@ -49,7 +49,7 @@ void share(int n) {
             }
         }
     }
-    nums = candy[0];
+    pre = candy[0];
 }
 
 int main() {
@@ -61,7 +61,7 @@ int main() {
             temp[i] = candy[i] / 2;
         }
         share(n);
-        printf("%d %d\n", dfn_index, nums);
+        printf("%d %d\n", dfn_index, pre);
     }
     return 0;
 }

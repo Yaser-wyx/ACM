@@ -12,7 +12,7 @@ using namespace std;
  */
 #define maxn 500050
 int n, k;
-int nums[maxn];
+int pre[maxn];
 
 int LIS() {//O(N^2)朴素LIS算法
     int ans = 0;
@@ -22,7 +22,7 @@ int LIS() {//O(N^2)朴素LIS算法
     }
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j < i; j++) {
-            if (nums[j] <= nums[i]) {
+            if (pre[j] <= pre[i]) {
                 dp[i] = max(dp[i], dp[j] + 1);
             }
         }

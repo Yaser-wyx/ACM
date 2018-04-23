@@ -15,7 +15,7 @@ using namespace std;
 struct num {
     vector<int> last;
     int size = 0;
-} nums[maxn];
+} pre[maxn];
 
 void create() {//打表
     for (int i = 0; i < 10; i++) {
@@ -25,8 +25,8 @@ void create() {//打表
             if (vis[temp]) {
                 break;
             }
-            nums[i].last.push_back(temp);
-            nums[i].size++;
+            pre[i].last.push_back(temp);
+            pre[i].size++;
             vis[temp] = true;
             temp *= i;
             if (temp >= 10) {
@@ -43,11 +43,11 @@ int HDU1097() {
         if (a >= 10) {
             a %= 10;
         }
-        int index = (b % nums[a].size) - 1;
+        int index = (b % pre[a].size) - 1;
         if (index < 0) {
-            printf("%d\n", nums[a].last[nums[a].size - 1]);
+            printf("%d\n", pre[a].last[pre[a].size - 1]);
         } else {
-            printf("%d\n", nums[a].last[index]);
+            printf("%d\n", pre[a].last[index]);
         }
 
     }

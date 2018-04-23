@@ -11,17 +11,17 @@ using namespace std;
  * 
  */
 int n;
-long nums[maxn];
+long pre[maxn];
 
 int I() {
     scanf("%d", &n);
     for (int i = 0; i < n; i++) {
-        scanf("%li", &nums[i]);
+        scanf("%li", &pre[i]);
     }
-    sort(nums, nums + n);
+    sort(pre, pre + n);
     long dis[maxn];
     for (int i = 1; i < n; i++) {
-        dis[i] = nums[i] - nums[i - 1];
+        dis[i] = pre[i] - pre[i - 1];
     }
 
     sort(dis + 1, dis + n);

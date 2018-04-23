@@ -15,12 +15,12 @@ typedef long long int lli;
 
 int n;
 int dfn_index = 0;
-int nums[maxn];
+int pre[maxn];
 bool vis[maxn];
 
 bool judge(int index) {
     for (int i = 0; i < index; i++) {
-        if (abs(nums[i] - nums[index]) == index - i) {
+        if (abs(pre[i] - pre[index]) == index - i) {
             return 0;
         }
     }
@@ -32,7 +32,7 @@ void dfs(int index) {
         dfn_index++;
         if (dfn_index <= 3) {
             for (int i = 0; i < n; i++) {
-                printf("%d", nums[i] + 1);
+                printf("%d", pre[i] + 1);
                 if (i != n) {
                     printf(" ");
                 }
@@ -44,7 +44,7 @@ void dfs(int index) {
     for (int i = 0; i < n; i++) {
         if (!vis[i]) {
             vis[i] = 1;
-            nums[index] = i;
+            pre[index] = i;
             if (judge(index)) {
                 dfs(index + 1);
             }
