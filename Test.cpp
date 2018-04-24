@@ -15,12 +15,19 @@ using namespace std;
 #define loop3(a, b, c) for(int a=b;a<c;a++)
 #define loop4(a, b, c) for(int a=b;a>c;a--)
 #define loop5(a, b, c, d) for(int a=b;a<=c;a++)if(d)break;
-#define maxn 33000
+#define maxn 2005
 #define maxm 20
 int n, m, t;
+char words[maxn][80];
+int dp[maxn];
 
 int main() {
     in;
+    scanf("%d", &n);
+    getchar();
+    loop(i, 1, n) {
+        scanf("%s", words[i]);
+    }
 
     return 0;
 }
