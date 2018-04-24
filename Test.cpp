@@ -14,13 +14,13 @@ using namespace std;
 #define loop2(a, b, c) for(int a=b;a>=c;a--)
 #define loop3(a, b, c) for(int a=b;a<c;a++)
 #define loop4(a, b, c) for(int a=b;a>c;a--)
-#define maxn 10
+#define loop5(a, b, c, d) for(int a=b;a<=c;a++)if(d)break;
+#define maxn 33000
 #define maxm 20
 int n, m, t;
 
 int main() {
     in;
-
 
     return 0;
 }
