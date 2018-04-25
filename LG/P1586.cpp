@@ -24,10 +24,10 @@ int dp[maxn][5];
 
 int P1586() {
     mset(dp, 0);
-    dp[0][0] = 1;
-    for (int i = 1; i * i <= 32768; i++) {
-        for (int j = i * i; j <= 32768; j++) {
-            for (int k = 1; k < 5; k++) {
+    dp[0][0] = 1;//初始化
+    for (int i = 1; i * i <= 32768; i++) {//第i个物品，其费用为i*i
+        for (int j = i * i; j <= 32768; j++) {//背包容量
+            for (int k = 1; k < 5; k++) {//所使用的数的个数
                 dp[j][k] += dp[j - i * i][k - 1];
             }
         }
