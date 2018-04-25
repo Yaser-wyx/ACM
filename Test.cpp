@@ -16,13 +16,26 @@ using namespace std;
 #define loop2(a, b, c) for(int a=b;a>=c;a--)
 #define loop3(a, b, c) for(int a=b;a<c;a++)
 #define loop4(a, b, c) for(int a=b;a>c;a--)
-#define maxn 100
-#define maxm 20
+#define maxn 1005
+#define maxm 10005
 int n, m, t;
+int times[maxn];
+struct people {
+    int time;
+    int from;
+    int to;
+} peoples[maxm];
 
 
 int main() {
     in;
+    scanf("%d%d%d", &n, &m, &t);
+    loop(i, 1, n - 1) {
+        scanf("%d", &times[i]);
+    }
+    loop(i, 1, m) {
+        scanf("%d%d%d", &peoples[i].time, &peoples[i].from, &peoples[i].to);
+    }
 
     return 0;
 }
