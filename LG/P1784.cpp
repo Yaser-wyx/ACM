@@ -16,7 +16,7 @@ using namespace std;
 #define loop4(a, b, c) for(int a=b;a>c;a--)
 #define maxn 10
 #define maxm 20
-int n, m, t;
+int n, m, k;
 bool row[maxn][maxn];//列
 bool line[maxn][maxn];//行
 bool area[maxn][maxn];//宫

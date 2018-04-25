@@ -19,7 +19,7 @@ typedef long long int lli;
 #define loop5(a, b, c, d) for(int a=b;a<=c;a++)if(d)break;
 #define maxn 33000
 #define maxm 20
-int n, m, t;
+int n, m, k;
 int dp[maxn][5];
 
 int P1586() {
@@ -32,8 +32,8 @@ int P1586() {
             }
         }
     }
-    scanf("%d", &t);
-    loop(i, 1, t) {
+    scanf("%d", &k);
+    loop(i, 1, k) {
         scanf("%d", &n);
         printf("%d\n", dp[n][1] + dp[n][2] + dp[n][3] + dp[n][4]);
     }

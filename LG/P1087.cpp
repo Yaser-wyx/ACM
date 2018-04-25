@@ -20,7 +20,7 @@ typedef long long int lli;
 #define loop4(a, b, c) for(int a=b;a>c;a--)
 #define maxn 3000
 #define maxm 20
-int n, m, t;
+int n, m, k;
 string str;
 int len;
 

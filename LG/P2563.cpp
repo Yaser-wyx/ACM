@@ -14,7 +14,7 @@ using namespace std;
 #define loop2(a, b, c) for(int a=b;a>=c;a--)
 #define maxn 250
 #define maxm 250
-int n, m, t;
+int n, m, k;
 bool prime[maxn];
 vector<int> primes;
 

@@ -17,7 +17,7 @@ using namespace std;
 #define loop4(a, b, c) for(int a=b;a>c;a--)
 #define maxn 1010
 #define maxm 20
-int n, m, t;
+int n, m, k;
 pair<double, double> nodes[maxm];
 double dis[maxm][maxm];
 bool vis[maxm];

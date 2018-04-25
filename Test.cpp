@@ -16,58 +16,48 @@ using namespace std;
 #define loop2(a, b, c) for(int a=b;a>=c;a--)
 #define loop3(a, b, c) for(int a=b;a<c;a++)
 #define loop4(a, b, c) for(int a=b;a>c;a--)
-#define maxn 1005
+#define maxn 5005
 #define maxm 10005
-int n, m, t;
-int times[maxn];//从第i个到第j个站台所需时间
-struct people {
-    int time;
-    int from;
-    int to;
+int n, m, k;
+pair<int, int> club[maxn];
 
-    bool operator<(const people &rhs) const {
-        if (from != rhs.from) {
-            return from < rhs.from;
-        } else {
-            return time < rhs.time;
-        }
-    }
-
-} peoples[maxm];
-
-pair<int, int> cnt[maxn];//终点站
 bool cmp(pair<int, int> a, pair<int, int> b) {
-    return a.second > b.second;
+    if (a.first == b.first) {
+        return a.second > b.second;
+    }
+    return a.first > b.first;
 }
-
 
 int main() {
     in;
-    scanf("%d%d%d", &n, &m, &t);
-    loop(i, 2, n) {
-        scanf("%d", &times[i]);//保存从上一个站台到i站台的时间
+    scanf("%d", &n);
+    loop(i, 1, n) {
+        scanf("%d%d", &club[i].first, &club[i].second);
     }
-    loop(i, 1, m) {
-        scanf("%d%d%d", &peoples[i].time, &peoples[i].from, &peoples[i].to);
-        cnt[peoples[i].to].second++;
-        cnt[peoples[i].to].first = peoples[i].to;
-    }
-    sort(cnt + 2, cnt + 2 + n, cmp);//将到第i站的人数进行从大到小排序
-    sort(peoples + 1, peoples + 1 + m);//将人按照站台的起始位置和到起点的时间，从小到大排序
-    int index = 2;
+    sort(club + 1, club + 1 + n, cmp);
 
-    while (t > 0 && index <= n) {
-        if (times[cnt[index].first] < t) {
-            //如果从上一站到该站所需要的时间小于加速器的个数
-            times[cnt[index].first] = 0;
-            t -= times[cnt[index].first];
-            index++;
-        } else {
-            //否则用完加速器
-            times[cnt[index].first] -= t;
-            t = 0;
+    bool vis[maxn];
+    mset(vis, 0);
+    loop(i, 1, n) {
+        if (!vis[i]) {
+            int w = club[i].second;
+            loop(j, i + 1, n) {
+                if (vis[j]) {
+                    continue;
+                }
+                if (club[j].second <= w) {
+                    w = club[j].second;
+                    vis[j] = 1;
+                }
+            }
         }
     }
-
+    int ans = 0;
+    loop(i, 1, n) {
+        if (!vis[i]) {
+            ans++;
+        }
+    }
+    printf("%d\n", ans);
     return 0;
 }

@@ -13,7 +13,7 @@ using namespace std;
 
 #define maxn 100010
 int n;
-long long int v[maxn], t[maxn];
+long long int v[maxn], k[maxn];
 
 
 int main() {
@@ -23,7 +23,7 @@ int main() {
         scanf("%lli", &v[i]);//体积
     }
     for (int i = 0; i < n; i++) {
-        scanf("%lli", &t[i]);//温度
+        scanf("%lli", &k[i]);//温度
     }
     multiset<long long> multiset1;
     long long rm = 0;
@@ -33,12 +33,12 @@ int main() {
         now = 0;
         multiset1.insert(v[i] + rm);
 
-        while (!multiset1.empty() && *begin(multiset1) - rm - t[i] <= 0) {
+        while (!multiset1.empty() && *begin(multiset1) - rm - k[i] <= 0) {
             now += (*begin(multiset1) - rm);
             multiset1.erase(begin(multiset1));
         }
-        now += multiset1.size() * t[i];
-        rm += t[i];
+        now += multiset1.size() * k[i];
+        rm += k[i];
         printf("%lld ", now);
 
     }

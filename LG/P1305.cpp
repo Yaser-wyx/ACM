@@ -20,7 +20,7 @@ typedef long long int lli;
 #define loop4(a, b, c) for(int a=b;a>c;a--)
 #define maxn 500000
 #define maxm 20
-int n, m, t;
+int n, m, k;
 pair<int, int> tree[maxn];
 
 void print(int index) {

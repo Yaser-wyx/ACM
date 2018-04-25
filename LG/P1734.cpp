@@ -14,7 +14,7 @@ using namespace std;
 #define loop2(a, b, c) for(int a=b;a>=c;a--)
 #define maxn 1010
 #define maxm 250
-int n, m, t;
+int n, m, k;
 int value[maxn];
 int dp[maxn];
 

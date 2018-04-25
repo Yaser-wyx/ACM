@@ -13,7 +13,7 @@ using namespace std;
  */
 #define mset(t, x) memset(t,x,sizeof(t))
 #define maxn 55
-int t, n;
+int k, n;
 struct food {
     lli a;
     lli b;
@@ -27,7 +27,7 @@ bool cmp(food a, food b) {
 int P1417() {
     lli dp[100010];
     mset(dp, 0);
-    scanf("%d%d", &t, &n);
+    scanf("%d%d", &k, &n);
     for (int i = 0; i < n; i++) {
         scanf("%lli", &foods[i].a);
     }
@@ -40,7 +40,7 @@ int P1417() {
     sort(foods, foods + n, cmp);
     lli ans = 0;
     for (int i = 0; i < n; i++) {
-        for (int v = t; v >= foods[i].c; v--) {
+        for (int v = k; v >= foods[i].c; v--) {
             dp[v] = max(dp[v], dp[v - foods[i].c] + foods[i].a - v * foods[i].b);
             ans = max(ans, dp[v]);
         }

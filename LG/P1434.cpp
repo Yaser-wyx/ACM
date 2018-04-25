@@ -14,7 +14,7 @@ using namespace std;
 #define loop2(a, b, c) for(int a=b;a>=c;a--)
 #define maxn 1010
 #define maxm 150
-int n, m, t;
+int n, m, k;
 int puzzle[maxm][maxm];
 int dp[maxm][maxm];
 int mv[4][2] = {{1,  0},

@@ -17,7 +17,7 @@ typedef long long int lli;
 #define loop4(a, b, c) for(int a=b;a>c;a--)
 #define maxn 40005
 #define maxm 20
-int n, m, t;
+int n, m, k;
 pair<int, int> nodes[maxn];
 
 bool cmp(pair<int, int> a, pair<int, int> b) {

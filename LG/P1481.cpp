@@ -19,7 +19,7 @@ typedef long long int lli;
 #define loop5(a, b, c, d) for(int a=b;a<=c;a++)if(d)break;
 #define maxn 2005
 #define maxm 20
-int n, m, t;
+int n, m, k;
 char words[maxn][80];
 int dp[maxn];
 
