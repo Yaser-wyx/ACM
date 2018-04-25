@@ -55,6 +55,7 @@ int main() {
     sort(cnt + 2, cnt + 2 + n, cmp);//将到第i站的人数进行从大到小排序
     sort(peoples + 1, peoples + 1 + m);//将人按照站台的起始位置和到起点的时间，从小到大排序
     int index = 2;
+
     while (t > 0 && index <= n) {
         if (times[cnt[index].first] < t) {
             //如果从上一站到该站所需要的时间小于加速器的个数
