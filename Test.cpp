@@ -19,45 +19,9 @@ using namespace std;
 #define maxn 5005
 #define maxm 10005
 int n, m, k;
-pair<int, int> club[maxn];
-
-bool cmp(pair<int, int> a, pair<int, int> b) {
-    if (a.first == b.first) {
-        return a.second > b.second;
-    }
-    return a.first > b.first;
-}
 
 int main() {
     in;
-    scanf("%d", &n);
-    loop(i, 1, n) {
-        scanf("%d%d", &club[i].first, &club[i].second);
-    }
-    sort(club + 1, club + 1 + n, cmp);
 
-    bool vis[maxn];
-    mset(vis, 0);
-    loop(i, 1, n) {
-        if (!vis[i]) {
-            int w = club[i].second;
-            loop(j, i + 1, n) {
-                if (vis[j]) {
-                    continue;
-                }
-                if (club[j].second <= w) {
-                    w = club[j].second;
-                    vis[j] = 1;
-                }
-            }
-        }
-    }
-    int ans = 0;
-    loop(i, 1, n) {
-        if (!vis[i]) {
-            ans++;
-        }
-    }
-    printf("%d\n", ans);
     return 0;
 }
