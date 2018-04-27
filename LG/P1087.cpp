@@ -21,7 +21,7 @@ typedef long long int lli;
 #define maxn 3000
 #define maxm 20
 int n, m, k;
-string str;
+string ss;
 int len;
 
 char judge(string s) {
@@ -79,9 +79,9 @@ void print(int index) {
 int P1087() {
     scanf("%d", &n);
     n = pow(2, n + 1);
-    cin >> str;
-    nodes[1].s = str;
-    nodes[1].flag = judge(str);
+    cin >> ss;
+    nodes[1].s = ss;
+    nodes[1].flag = judge(ss);
     build(1);
     print(1);
     return 0;

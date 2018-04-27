@@ -16,12 +16,11 @@ using namespace std;
 #define loop2(a, b, c) for(int a=b;a>=c;a--)
 #define loop3(a, b, c) for(int a=b;a<c;a++)
 #define loop4(a, b, c) for(int a=b;a>c;a--)
-#define maxn 5005
+#define maxn 100005
 #define maxm 10005
-int n, m, k;
+int n, k;
 
 int main() {
     in;
 
-    return 0;
 }
