@@ -1,8 +1,8 @@
-//#pragma GCC optimize(2)
+#pragma GCC optimize(3)
 
 #include <bits/stdc++.h>
 
-typedef unsigned long long int lli;
+typedef long long int lli;
 #define data1  "W:\\Workspace\\data.in"
 #define data2  "F:\\ACM\\data.in"
 #define INF 0xfffffff
@@ -16,13 +16,36 @@ using namespace std;
 #define loop2(a, b, c) for(int a=b;a>=c;a--)
 #define loop3(a, b, c) for(int a=b;a<c;a++)
 #define loop4(a, b, c) for(int a=b;a>c;a--)
-#define maxn 1005
+#define maxn 100005
 #define maxm 10005
-int n, b, k, t, x, y;
-int matrix[maxn][maxn];
+lli n, sum, d;
+lli nums[maxn];
 
 int main() {
     in;
+    int indexes[maxn];
 
+    cin >> n >> d;
+    loop3(i, 0, n) {
+        cin >> nums[i];
+    }
+    loop3(i, 0, n) {
+        int temp = lower_bound(nums, nums + n, nums[i] + d) - nums;
+        if (temp >= n) {
+            indexes[i] = n - 1;
+        } else {
+            if (nums[temp] - nums[i] > d) {
+                temp--;
+            }
+            indexes[i] = temp;
+        }
+    }
+    lli ans = 0;
+    loop3(i, 0, n - 2) {
+        lli temp = indexes[i] - i - 1;
+
+        ans += ((1 + temp) * temp) / 2;
+    }
+    cout << ans;
     return 0;
 }
