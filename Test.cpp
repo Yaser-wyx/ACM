@@ -31,10 +31,9 @@ using namespace std;
 #define loop2(a, b, c) for(int a=b;a>=c;a--)
 #define loop3(a, b, c) for(int a=b;a<c;a++)
 #define loop4(a, b, c) for(int a=b;a>c;a--)
-#define maxn 50005
+#define maxn 2005
 #define maxm 20005
-lli l, m, k, n, minn, maxx, r, q;
-int ans[maxn];
+lli l, m, k, n, r, q;
 
 int main() {
     in;
