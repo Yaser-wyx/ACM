@@ -16,7 +16,7 @@ typedef unsigned long long int lli;
 int n, k;
 lli ans = 0;
 
-int main() {
+int P1192() {
     scanf("%d%d", &n, &k);
     lli dp[maxn];
     memset(dp, 0, sizeof(dp));

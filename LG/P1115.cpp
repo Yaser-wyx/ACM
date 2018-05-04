@@ -17,7 +17,7 @@ int n, m;
 int pre[maxn];
 int indexes[maxn];
 
-int main() {
+int P1115() {
     scanf("%d", &n);
     mset(pre, 0);
     int temp;

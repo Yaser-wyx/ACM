@@ -16,7 +16,7 @@ using namespace std;
 int n, m;
 
 
-int main() {
+int P1063() {
     pair<lli, lli> matrix[maxn];
     int temp[maxn];
     lli dp[maxn][maxn];

@@ -22,7 +22,7 @@ bool cmp(pair<int, int> a, pair<int, int> b) {
 
 int dp[maxn][maxn];
 
-int main() {
+int P4138() {
     scanf("%d", &n);
     loop(i, 1, n) {
         scanf("%d%d", &strap[i].first, &strap[i].second);

@@ -1,5 +1,4 @@
 #include <bits/stdc++.h>
-
 using namespace std;
 typedef long long int lli;
 /**
@@ -23,7 +22,7 @@ int n, b, k, t, x, y, z;
 int matrix[maxn][maxn];
 int dp[maxn][maxn][maxn];
 
-int main() {
+int P1004() {
     mset(matrix, 0);
     scanf("%d", &n);
     while (~scanf("%d%d%d", &x, &y, &z)) {

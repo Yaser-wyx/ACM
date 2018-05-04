@@ -36,7 +36,7 @@ int dfs(int x, int y) {
     return dp[x][y];
 }
 
-int main() {
+int P1434() {
     scanf("%d%d", &n, &m);
     loop(i, 1, n) {
         loop(j, 1, m) {

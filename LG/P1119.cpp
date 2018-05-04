@@ -16,7 +16,7 @@ int n, m;
 int times[maxn];
 int cities[maxn][maxn];
 
-int main() {
+int P1119() {
     scanf("%d%d", &n, &m);
     for (int i = 0; i < n; i++) {
         cin >> times[i];

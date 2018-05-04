@@ -26,7 +26,7 @@ void dfs(int last, int s, int nn) {
 
 }
 
-int main() {
+int P1025() {
 
     scanf("%d%d", &n, &k);
     dfs(1, k, n);
