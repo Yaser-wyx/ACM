@@ -2,21 +2,7 @@
 
 #include <bits/stdc++.h>
 
-inline int read() {
-    int x = 0, y = 1;
-    char c = getchar();
-    while (c > '9' || c < '0') {
-        if (c == '-')y = -1;
-        c = getchar();
-    }
-    while (c >= '0' && c <= '9') {
-        x = x * 10 + c - '0';
-        c = getchar();
-    }
-    return x * y;
-}
-
-typedef long long int lli;
+typedef unsigned long long int lli;
 #define data1  "W:\\Workspace\\data.in"
 #define data2  "F:\\ACM\\data.in"
 #define INF 0xfffffff
@@ -31,12 +17,19 @@ using namespace std;
 #define loop2(a, b, c) for(int a=b;a>=c;a--)
 #define loop3(a, b, c) for(int a=b;a<c;a++)
 #define loop4(a, b, c) for(int a=b;a>c;a--)
-#define maxn 2005
+#define maxn 1005
 #define maxm 20005
-lli l, m, k, n, r, q;
+#define mod 1000007
+int l, m, k, n, r, q;
+char st[maxn];
+char ed[maxn];
+int len;
+
 
 int main() {
     in;
-
+    scanf("%s", st);
+    scanf("%s", ed);
+    len = strlen(st);
     return 0;
 }

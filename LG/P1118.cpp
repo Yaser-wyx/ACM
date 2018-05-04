@@ -21,7 +21,7 @@ typedef long long int lli;
 #define maxn 30
 #define maxm 10005
 int n, sum;
-int nums[maxn];
+int st[maxn];
 bool vis[maxn];
 bool flag;
 int c[maxn];
@@ -50,7 +50,7 @@ void caculate(int m) {
 bool judge(int x) {
     int temp = 0;
     loop(i, 0, x) {
-        temp += (nums[i] * c[i]);
+        temp += (st[i] * c[i]);
         if (temp > sum) {
             return false;
         }
@@ -66,7 +66,7 @@ void dfs(int index) {
     if (index == n) {
         flag = true;
         loop3(i, 0, n) {
-            cout << nums[i];
+            cout << st[i];
             if (i != n) {
                 cout << " ";
             }
@@ -76,7 +76,7 @@ void dfs(int index) {
     loop(i, 1, n) {
         if (!vis[i]) {
             vis[i] = 1;
-            nums[index] = i;
+            st[index] = i;
             if (judge(index)) {
                 dfs(index + 1);
             } else {
@@ -95,7 +95,7 @@ void dfs(int index) {
 int P1118() {
     cin >> n >> sum;
     mset(vis, 0);
-    mset(nums, 0);
+    mset(st, 0);
     mset(c, 0);
 
     flag = false;
