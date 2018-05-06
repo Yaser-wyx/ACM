@@ -20,7 +20,7 @@ typedef long long int lli;
 #define loop4(a, b, c) for(int a=b;a>c;a--)
 #define maxn 1000005
 #define maxm 20005
-lli l, m, k, n, minn, maxx, r, q;
+lli l, m, k, n, r, q;
 
 lli fac[33] = {1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768, 65536, 131072, 262144,
                524288,

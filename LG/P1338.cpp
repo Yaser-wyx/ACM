@@ -29,12 +29,12 @@ int P1338() {
     int st = 0;
     int ed = n - 1;
     loop(i, 1, n) {
-        lli temp = (n - i - 1) * (n - i) / 2;
-        if (m <= temp) {
-            ans[st++] = i;
+        lli temp = (n - i - 1) * (n - i) / 2;//最大逆序数个数
+        if (m <= temp) {//如果n-1个数的逆序数个数不大于逆序数个数
+            ans[st++] = i;//将当前最小的数放前面
         } else {
-            ans[ed--] = i;
-            m -= (ed - st + 1);
+            ans[ed--] = i;//否则放后面
+            m -= (ed - st + 1);//减去可以贡献的逆序数个数
         }
     }
     loop3(i, 0, n) {

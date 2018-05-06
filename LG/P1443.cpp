@@ -21,7 +21,7 @@ int mv[8][2] = {{1,  2},
                 {1,  -2},
                 {-1, -2},
                 {-2, -1},
-                {2,  -1}};
+                {2,  -1}};//方向
 
 void bfs() {
     pair<int, int> start(x, y);
@@ -37,7 +37,7 @@ void bfs() {
             if (new_x > 0 && new_y > 0 && new_x <= n && new_y <= m) {
                 if(dis[new_x][new_y]==-1){
                     //能到达
-                    dis[new_x][new_y] = dis[temp_x][temp_y] + 1;
+                    dis[new_x][new_y] = dis[temp_x][temp_y] + 1;//更新距离
                     pair<int, int> temp(new_x, new_y);
                     queue1.push(temp);
                 }
@@ -48,7 +48,6 @@ void bfs() {
 }
 
 int P1443() {
-    in;
     mset(dis, -1);
     scanf("%d%d%d%d", &n, &m, &x, &y);
     dis[x][y] = 0;

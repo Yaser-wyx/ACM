@@ -58,7 +58,7 @@ int P1908() {
     int res = 0;
     loop(i, 1, n) {
         update(nodes[i].first);
-        res += (i - getSum(nodes[i].first));
+        res += (i - getSum(nodes[i].first));//计算已经插入到数组中比其大的数的个数
     }
     printf("%d\n", res);
 

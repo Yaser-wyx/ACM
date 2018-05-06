@@ -38,12 +38,12 @@ void dp() {
     loop(i, 1, c) {//选择i列
         loop(j, i, m) {//这i列里最后一列是j
             loop3(k, 0, j) {//j的前一列是k
-                f[i][j] = min(f[i][j], f[i - 1][k] + reduce[j] + v[k][j]);
+                f[i][j] = min(f[i][j], f[i - 1][k] + reduce[j] + v[k][j]);//前i-1的第k列加上第j列的值
             }
         }
     }
     loop(j, c, m) {
-        ans = min(ans, f[c][j]);
+        ans = min(ans, f[c][j]);//最小值
     }
 
 }

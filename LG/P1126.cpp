@@ -37,7 +37,7 @@ void bfs(node start) {
         queue1.pop();
         if (now.x != ex || now.y != ey) {
             for (int i = 0; i < 4; i++) {//四个方向访问
-                int step = now.step;
+                int step = now.step;//走到当前位置的步数
                 if (now.dir != i) {
                     //方向不一样
                     step++;
@@ -46,14 +46,14 @@ void bfs(node start) {
                     }
                 }
                 //对当前方向进行步数的枚举
-                for (int j = 1; j < 4; j++) {
+                for (int j = 1; j < 4; j++) {//步数
                     int temp_x = now.x + mv[i][0] * j;
                     int temp_y = now.y + mv[i][1] * j;
                     if (temp_x > n || temp_x < 1 || temp_y > m || temp_y < 1 || puzzle[temp_x][temp_y]) {//如果越界了或者有障碍物
                         break;
                     }
-                    if (steps[temp_x][temp_y] > step + 1) {//找到一个更好的解
-                        steps[temp_x][temp_y] = step + 1;
+                    if (steps[temp_x][temp_y] > step + 1) {//从now到新的位置距离更近
+                        steps[temp_x][temp_y] = step + 1;//更新值
                         node temp(temp_x, temp_y, step + 1, i);
                         queue1.push(temp);
                     }
@@ -71,7 +71,7 @@ int P1126() {
         for (int j = 1; j <= m; j++) {
             bool a;
             cin >> a;
-            if (a) {//将格子图转化为点图
+            if (a) {//将格子图转化为点图，因为机器人有体积，有障碍物的格子过不去
                 puzzle[i][j] = 1;
                 puzzle[i - 1][j] = 1;
                 puzzle[i][j - 1] = 1;
@@ -79,11 +79,11 @@ int P1126() {
             }
         }
     }
-    for (int i = 0; i <= m; i++) {
+    for (int i = 0; i <= m; i++) {//注意边界
         puzzle[0][i] = 1;
         puzzle[n][i] = 1;
     }
-    for (int i = 0; i <= n; i++) {
+    for (int i = 0; i <= n; i++) {//注意边界
         puzzle[i][m] = 1;
         puzzle[i][0] = 1;
     }
@@ -109,7 +109,7 @@ int P1126() {
     steps[x][y] = 0;
     bfs(start);
     if (steps[ex][ey] == 16843009) {
-        printf("-1\n");
+        printf("-1\n");//无法到达
     } else
         printf("%d\n", steps[ex][ey]);
     return 0;

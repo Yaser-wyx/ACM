@@ -26,7 +26,7 @@ int P1108() {
         dp[i] = 1;
         for (int j = 0; j < i; j++) {
             if (stock[j] > stock[i]) {
-                dp[i] = max(dp[i], dp[j] + 1);
+                dp[i] = max(dp[i], dp[j] + 1);//LIS
             }
         }
         mx = max(mx, dp[i]);
@@ -44,7 +44,7 @@ int P1108() {
                 cnt[i] = 0;
             }
         }
-        if (dp[i] == mx) {
+        if (dp[i] == mx) {//当前方案数等于最大方案数
             ans += cnt[i];
         }
     }

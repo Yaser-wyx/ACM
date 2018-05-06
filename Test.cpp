@@ -17,24 +17,11 @@ typedef long long int lli;
 #define loop2(a, b, c) for(int a=b;a>=c;a--)
 #define loop3(a, b, c) for(int a=b;a<c;a++)
 #define loop4(a, b, c) for(int a=b;a>c;a--)
-#define maxn 20
-int a, b;
-
-void Exgcd(int a, int b, int &x, int &y) {
-    if (b == 0) {
-        x = 1;
-        y = 0;
-    } else {
-        Exgcd(b, a % b, y, x);
-        y -= a / b * x;
-    }
-}
+#define maxn 1005
 
 int main() {
     in;
-    cin >> a >> b;
-    int x, y;
-    Exgcd(a, b, x, y);
-    cout << (x + b) % b;
+
     return 0;
+
 }

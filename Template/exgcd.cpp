@@ -12,15 +12,12 @@ using namespace std;
  *  To change this template use File | Settings | File Templates.
  *  扩展欧几里得
  */
-lli exgcd(lli a, lli b, lli &x, lli &y) {
+void Exgcd(int a, int b, int &x, int &y) {
     if (b == 0) {
         x = 1;
         y = 0;
-        return a;
     } else {
-        lli r = exgcd(b, a % b, y, x);
-        y -= x * (a / b);
-        return r;
+        Exgcd(b, a % b, y, x);
+        y -= a / b * x;
     }
-
 }

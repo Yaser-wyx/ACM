@@ -24,14 +24,14 @@ int P1164() {
     }
     int dp[maxn];
     mset(dp, -1);
-    dp[0] = 1;
+    dp[0] = 1;//0元也是一种方案
     for (int i = 0; i < n; i++) {
         for (int j = m; j >= cost[i]; j--) {
             if (dp[j - cost[i]] > 0) {
                 if (dp[j] < 0) {
-                    dp[j] = dp[j - cost[i]];
+                    dp[j] = dp[j - cost[i]];//第一次取到该价格
                 } else {
-                    dp[j] = dp[j - cost[i]] + dp[j];
+                    dp[j] += dp[j - cost[i]];//已有至少一次
                 }
             }
         }
