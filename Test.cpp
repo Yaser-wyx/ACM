@@ -17,11 +17,10 @@ typedef long long int lli;
 #define loop2(a, b, c) for(int a=b;a>=c;a--)
 #define loop3(a, b, c) for(int a=b;a<c;a++)
 #define loop4(a, b, c) for(int a=b;a>c;a--)
-#define maxn 1005
+#define maxn 30
 
 int main() {
     in;
 
     return 0;
-
 }
