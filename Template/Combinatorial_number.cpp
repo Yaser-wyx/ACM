@@ -27,7 +27,6 @@ inline lli fac(int x) {//阶乘计算
         ans *= i;
     }
     return ans;
-
 }
 
 void caculate(int m) {//组合数计算

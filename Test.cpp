@@ -1,9 +1,8 @@
-//#pragma GCC optimize(2)
-
 #include <bits/stdc++.h>
 
 using namespace std;
 typedef long long int lli;
+typedef __int128 big;
 #define data1  "W:\\Workspace\\data.in"
 #define data2  "F:\\ACM\\data.in"
 #define INF 0xfffffff
@@ -17,7 +16,9 @@ typedef long long int lli;
 #define loop2(a, b, c) for(int a=b;a>=c;a--)
 #define loop3(a, b, c) for(int a=b;a<c;a++)
 #define loop4(a, b, c) for(int a=b;a>c;a--)
-#define maxn 30
+#define maxn 10005
+#define Mod 10007
+
 
 int main() {
     in;

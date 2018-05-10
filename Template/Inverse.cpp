@@ -19,7 +19,7 @@ using namespace std;
  *
  * @return
  */
-lli qp(int a, int k) {
+lli qp(lli a, lli k) {
     lli ans = 1, base = a;
     while (k) {
         {
@@ -33,7 +33,7 @@ lli qp(int a, int k) {
     return ans % mod;
 }
 
-lli feima(int a, int b) {
+lli feima(lli a, lli b) {
     lli ans = (a % mod * qp(b, mod - 2) % mod) % mod;
 }
 
