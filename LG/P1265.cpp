@@ -2,9 +2,15 @@
 
 using namespace std;
 typedef long long int lli;
-typedef __int128 big;
-#define data1  "W:\\Workspace\\data.in"
-#define data2  "F:\\ACM\\data.in"
+/**
+ *  Created with IntelliJ Clion.
+ *  @author  wanyu
+ *  @Date: 2018-05-15
+ *  @Time: 15:55
+ *  To change this template use File | Settings | File Templates.
+ * 
+ */
+
 #define INF 0xfffffff
 #define infinitesimal  -2100000000
 #define Mod 2000120420010122
@@ -57,8 +63,7 @@ void Prim() {
     }
 }
 
-int main() {
-    in;
+int P1265() {
     cin >> n;
     loop(i, 1, n) {
         cin >> nodes[i].x >> nodes[i].y;

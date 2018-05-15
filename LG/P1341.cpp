@@ -14,7 +14,7 @@ using namespace std;
 using namespace std;
 int n;
 bool G[maxn][maxn];//图
-int deg[maxn];//度数
+int seg[maxn];//度数
 int cnt = 0;
 int st[3];//起点
 vector<char> path;
@@ -22,15 +22,15 @@ vector<char> path;
 void add(int a, int b) {
     G[a - 'A' + 1][b - 'A' + 1] = 1;
     G[b - 'A' + 1][a - 'A' + 1] = 1;
-    deg[a - 'A' + 1]++;
-    deg[b - 'A' + 1]++;
+    seg[a - 'A' + 1]++;
+    seg[b - 'A' + 1]++;
     st[2] = min(min(a - 'A' + 1, b - 'A' + 1), st[2]);//最小的字典序
 }
 
 bool judge() {//判断是否是欧拉回路或欧拉通路
     int index = 0;
     for (int i = 0; i < maxn; i++) {
-        if (deg[i] & 1) {
+        if (seg[i] & 1) {
             cnt++;
             if (cnt > 2) {
                 return false;
@@ -66,7 +66,7 @@ void print() {
 
 int P1341() {
     cin >> n;
-    mset(deg, 0);
+    mset(seg, 0);
     st[2] = maxn;
     for (int i = 0; i < n; i++) {
         char a, b = 0;
