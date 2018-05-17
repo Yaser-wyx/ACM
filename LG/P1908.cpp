@@ -24,7 +24,7 @@ bool cmp(pair<int, int> a, pair<int, int> b) {
     return a.second < b.second;
 }
 
-int sum[maxn];
+int mx[maxn];
 
 int lowbit(int x) {
     return x & -x;
@@ -32,7 +32,7 @@ int lowbit(int x) {
 
 void update(int x) {
     while (x <= n) {
-        sum[x]++;
+        mx[x]++;
         x += lowbit(x);
     }
 }
@@ -40,7 +40,7 @@ void update(int x) {
 int getSum(int x) {
     int ans = 0;
     while (x != 0) {
-        ans += sum[x];
+        ans += mx[x];
         x -= lowbit(x);
     }
     return ans;
@@ -49,7 +49,7 @@ int getSum(int x) {
 
 int P1908() {
     scanf("%d", &n);
-    mset(sum, 0);
+    mset(mx, 0);
     loop(i, 1, n) {
         scanf("%d", &nodes[i].second);
         nodes[i].first = i;

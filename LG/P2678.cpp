@@ -44,19 +44,19 @@ int P2678() {
     }
     maxx = l;
     lli ans = 0;
-    while (minn <= maxx) {
+    while (minn+1 <maxx) {
         lli mid = (maxx + minn) / 2;
         int temp = judge(mid);
         if (!temp) {
             //间隙太大,石头移除太多
-            maxx = mid - 1;
+            maxx = mid;
         } else {
             //间隙太小，石头移除太少
-            minn = mid + 1;
-            ans = mid;
+            minn = mid ;
+
         }
     }
-    cout << ans;
+    cout << minn;
     return 0;
 }
 

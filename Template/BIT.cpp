@@ -12,14 +12,14 @@ typedef long long int lli;
  */
 #define maxn 40005
 int n, m, k;
-int sum[maxn];
+int mx[maxn];
 int lowbit(int x) {
     return x & -x;
 }
 
 void update(int x) {
     while (x <= n) {
-        sum[x]++;
+        mx[x]++;
         x += lowbit(x);
     }
 }
@@ -27,7 +27,7 @@ void update(int x) {
 int getSum(int x) {
     int ans = 0;
     while (x != 0) {
-        ans += sum[x];
+        ans += mx[x];
         x -= lowbit(x);
     }
     return ans;

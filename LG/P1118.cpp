@@ -20,7 +20,7 @@ typedef long long int lli;
 #define loop4(a, b, c) for(int a=b;a>c;a--)
 #define maxn 30
 #define maxm 10005
-int n, sum;
+int n, mx;
 int st[maxn];
 bool vis[maxn];
 bool flag;
@@ -51,12 +51,12 @@ bool judge(int x) {//判断当前生成的数列相加后是否小于等于最�
     int temp = 0;
     loop(i, 0, x) {
         temp += (st[i] * c[i]);
-        if (temp > sum) {//大于
+        if (temp > mx) {//大于
             return false;
         }
     }
     if (x == n - 1) {
-        return temp == sum;//如果生成了最后一个数
+        return temp == mx;//如果生成了最后一个数
     }
     return true;
 }
@@ -92,7 +92,7 @@ void dfs(int index) {
 }
 
 int P1118() {
-    cin >> n >> sum;
+    cin >> n >> mx;
     mset(vis, 0);
     mset(st, 0);
     mset(c, 0);

@@ -19,7 +19,7 @@ typedef long long int lli;
 #define loop4(a, b, c) for(int a=b;a>c;a--)
 #define maxn 100005
 #define maxm 10005
-int n, sum;
+int n, mx;
 int letters[30];//对应字母出现的最后一个位置
 
 struct node {

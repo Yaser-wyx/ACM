@@ -1,5 +1,19 @@
 #include <bits/stdc++.h>
 
+int read() {
+    int rv = 0, fh = 1;
+    char c = getchar();
+    while (c < '0' || c > '9') {
+        if (c == '-') fh = -1;
+        c = getchar();
+    }
+    while (c >= '0' && c <= '9') {
+        rv = (rv << 1) + (rv << 3) + c - '0';
+        c = getchar();
+    }
+    return rv * fh;
+}
+
 using namespace std;
 typedef long long int lli;
 typedef __int128 big;
@@ -7,65 +21,26 @@ typedef __int128 big;
 #define data2  "F:\\ACM\\data.in"
 #define INF 0xfffffff
 #define infinitesimal  -2100000000
-#define Mod 2000120420010122
+#define mod 692591
 #define all(x) x.begin(),x.end()
 #define in  std::ios::sync_with_stdio(false);fstream _file;_file.open(data1,ios::in);if(_file){freopen(data1,"r",stdin);}else{_file.open(data2,ios::in);if(_file)freopen(data2,"r",stdin);}
 #define mset(t, x) memset(t,x,sizeof(t))
-#define lson index<<1
-#define rson (index<<1) +1
+#define md (l+r)>>1
+#define left rt<<1
+#define right rt<<1|1
+#define lson l,m,left
+#define rson m+1,r,right
 #define loop(a, b, c) for(register int a=b;a<=c;a++)
 #define loop2(a, b, c) for(register int a=b;a>=c;a--)
 #define loop3(a, b, c) for(register int a=b;a<c;a++)
 #define loop4(a, b, c) for(register int a=b;a>c;a--)
-#define maxn 15000000
-#define maxn2 5005
-int n, m, s;
-bool vis[maxn2];
-double ans = 0;
-double dis[maxn2];
-struct node {
-    double x;
-    double y;
-} nodes[maxn2];
-
-
-inline double cal(int x, int y) {
-    return sqrt((nodes[x].x - nodes[y].x) * (nodes[x].x - nodes[y].x) +
-                (nodes[x].y - nodes[y].y) * (nodes[x].y - nodes[y].y));
-}
-
-void Prim() {
-    int pos = 0;
-    double temp;
-    dis[1] = 0;
-    loop(i, 1, n) {
-        temp = INF;
-        loop(j, 1, n) {
-            if (!vis[j] && temp > dis[j]) {
-                pos = j;
-                temp = dis[j];
-            }
-        }
-        vis[pos] = 1;
-        ans += temp;
-        loop(j, 1, n) {
-            double dd = cal(pos, j);
-            if (dd < dis[j]) {
-                dis[j] = dd;
-            }
-        }
-    }
-}
+#define maxn 50005
+#define maxm 20005
+lli l, m, n;
 
 int main() {
     in;
-    cin >> n;
-    loop(i, 1, n) {
-        cin >> nodes[i].x >> nodes[i].y;
-        dis[i] = INF;
-    }
-    mset(vis, 0);
-    Prim();
-    printf("%.2f", ans);
+
     return 0;
 }
+

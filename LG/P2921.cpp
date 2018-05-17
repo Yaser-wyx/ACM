@@ -27,7 +27,7 @@ int cnt = 0;
 int head[maxn];
 int ans = 0;
 int dp[maxn];
-int nxt[maxn];
+int num[maxn];
 struct edge {//链式前向星存图
     int to;
     int next;
@@ -70,7 +70,7 @@ int dfs(int index) {
     if (!index || dp[index]) {
         return dp[index];
     }
-    return dp[index] = dfs(nxt[index]) + sz[index];
+    return dp[index] = dfs(num[index]) + sz[index];
 }
 
 int P2921() {
@@ -89,7 +89,7 @@ int P2921() {
     for (int i = 1; i <= n; i++) {
         int next = edges[head[i]].to;
         if (flag[i] != flag[next]) {//不在同一个连通分量中
-            nxt[flag[i]] = flag[next];//使用连通分量重构图
+            num[flag[i]] = flag[next];//使用连通分量重构图
         }
     }
     for (int i = 1; i <= n; i++) {

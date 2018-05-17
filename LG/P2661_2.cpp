@@ -20,7 +20,7 @@ typedef long long int lli;
 #define loop4(a, b, c) for(int a=b;a>c;a--)
 #define maxn 200005
 int n, m, s;
-int nxt[maxn];
+int num[maxn];
 int ans = 7777777;
 bool vis[maxn];
 int dis;
@@ -28,11 +28,11 @@ int seg[maxn];
 
 
 void search(int x) {
-    int next = nxt[x];
+    int next = num[x];
     while (!vis[next]) {
         vis[next] = 1;
         dis++;
-        next = nxt[next];
+        next = num[next];
     }
 
 }
@@ -41,19 +41,19 @@ int P2661_2() {
     cin >> n;
     mset(seg, 0);
     loop(i, 1, n) {
-        cin >> nxt[i];
-        seg[nxt[i]]++;
+        cin >> num[i];
+        seg[num[i]]++;
     }
     loop(i, 1, n) {
         if (seg[i] == 0) {
             if (!vis[i]) {
                 vis[i] = 1;
-                seg[nxt[i]]--;
-                int to = nxt[i];
+                seg[num[i]]--;
+                int to = num[i];
                 while (seg[to] == 0) {
                     if (!vis[to]) {
                         vis[to] = 1;
-                        to = nxt[to];
+                        to = num[to];
                         seg[to]--;//删边
                     }
                 }
